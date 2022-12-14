@@ -16,19 +16,23 @@ const Cart = (props) => {
   const totalAmount = parseFloat(amt).toFixed(2).replace("NaN", "0");
 
   return (
-    <Modal onClose={props.onClose}>
-      <CartItems />
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>{`$${totalAmount}`}</span>
-      </div>
-      <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onClose}>
-          Close
-        </button>
-        {hasItems && <button className={classes.button}>Order</button>}
-      </div>
-    </Modal>
+    <>
+      <Modal onClose={props.onClose}>
+        <div className={classes["cart-items"]}>
+          <CartItems />
+          <div className={classes.total}>
+            <span>Total Amount</span>
+            <span>{`$${totalAmount}`}</span>
+          </div>
+          <div className={classes.actions}>
+            <button className={classes["button--alt"]} onClick={props.onClose}>
+              Close
+            </button>
+            {hasItems && <button className={classes.button}>Order</button>}
+          </div>
+        </div>
+      </Modal>
+    </>
   );
 };
 
